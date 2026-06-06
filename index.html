@@ -2174,8 +2174,8 @@ footer {
           <span class="sleek-line"></span>
         </div>
         <div class="sleek-field">
-          <input type="tel" name="phone" class="sleek-input" placeholder=" " required>
-          <label class="sleek-label">Phone Number</label>
+          <input type="tel" name="phone" id="phone" class="sleek-input" placeholder=" " required pattern="[0-9+\-\s\(\)]{7,}">
+          <label class="sleek-label">Phone Number *</label>
           <span class="sleek-line"></span>
         </div>
         <div class="sleek-field">
@@ -2188,6 +2188,20 @@ footer {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
       </form>
+      <script>
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+          const phone = document.getElementById('phone');
+          if (!phone.value.trim()) {
+            e.preventDefault();
+            phone.focus();
+            phone.style.borderBottomColor = 'var(--magenta)';
+            const label = phone.nextElementSibling;
+            label.style.color = 'var(--magenta)';
+            label.textContent = 'Phone Number is required!';
+            setTimeout(() => { label.textContent = 'Phone Number *'; }, 3000);
+          }
+        });
+      </script>
     </div>
 
   </div>
