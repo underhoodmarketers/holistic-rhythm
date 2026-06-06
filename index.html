@@ -1135,6 +1135,8 @@ footer {
   min-height: 90px;
   line-height: 1.6;
 }
+#phone::placeholder { color: rgba(255,250,245,0.3); font-size: 0.82rem; }
+
 .sleek-input::placeholder { color: transparent; }
 
 .sleek-label {
@@ -2174,9 +2176,9 @@ footer {
           <span class="sleek-line"></span>
         </div>
         <div class="sleek-field">
-          <input type="tel" name="phone" id="phone" class="sleek-input" placeholder=" " required pattern="[0-9+\-\s\(\)]{7,}">
-          <label class="sleek-label">Phone Number *</label>
+          <input type="tel" name="phone" id="phone" class="sleek-input" placeholder="Phone Number *" required>
           <span class="sleek-line"></span>
+          <span class="phone-error" id="phone-error" style="display:none;font-size:0.7rem;color:var(--magenta);margin-top:0.3rem;letter-spacing:0.05em;">⚠ Phone number is required</span>
         </div>
         <div class="sleek-field">
           <textarea name="message" class="sleek-input sleek-textarea" placeholder=" " required></textarea>
@@ -2191,14 +2193,18 @@ footer {
       <script>
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
           const phone = document.getElementById('phone');
+          const err = document.getElementById('phone-error');
           if (!phone.value.trim()) {
             e.preventDefault();
-            phone.focus();
+            e.stopImmediatePropagation();
             phone.style.borderBottomColor = 'var(--magenta)';
-            const label = phone.nextElementSibling;
-            label.style.color = 'var(--magenta)';
-            label.textContent = 'Phone Number is required!';
-            setTimeout(() => { label.textContent = 'Phone Number *'; }, 3000);
+            err.style.display = 'block';
+            phone.focus();
+            setTimeout(() => {
+              err.style.display = 'none';
+              phone.style.borderBottomColor = '';
+            }, 4000);
+            return false;
           }
         });
       </script>
