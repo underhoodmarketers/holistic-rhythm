@@ -153,6 +153,40 @@ nav {
   100% { transform: translateY(-60px) rotate(360deg); opacity: 0; }
 }
 
+.hero-partners {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  animation: fadeDown 0.6s ease 0.05s both;
+}
+.partner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+}
+.classpass-pill {
+  background: rgba(79,82,217,0.2);
+  border: 1px solid rgba(79,82,217,0.5);
+  color: #a5a8ff;
+}
+.wellhub-pill {
+  background: rgba(0,168,100,0.15);
+  border: 1px solid rgba(0,168,100,0.45);
+  color: #4dd49a;
+}
+.partner-divider {
+  color: rgba(255,250,245,0.25);
+  font-size: 0.9rem;
+}
+
 .hero-eyebrow {
   font-size: 0.72rem;
   font-weight: 600;
@@ -442,13 +476,33 @@ section { padding: 6rem 3rem; }
   margin-top: 3px;
 }
 
-.about-body {
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: rgba(255,250,245,0.65);
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
+.about-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
+.about-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--magenta), var(--saffron));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-lbl {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,250,245,0.4);
+}
+
+.about-body { margin-bottom: 1rem; }
 
 .pillars {
   display: flex;
@@ -835,6 +889,481 @@ footer {
   color: rgba(255,250,245,0.2);
 }
 
+/* ── SCHEDULE ── */
+.schedule-section {
+  background: var(--dark2);
+  padding: 6rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.schedule-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(212,0,106,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.schedule-header { text-align: center; margin-bottom: 2.5rem; }
+.schedule-sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.45);
+  margin-top: 0.5rem;
+}
+
+.city-tabs {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.city-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,250,245,0.5);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.65rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.city-tab:hover {
+  border-color: rgba(212,0,106,0.4);
+  color: rgba(255,250,245,0.8);
+}
+.city-tab.active {
+  background: linear-gradient(135deg, var(--magenta), var(--saffron));
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(212,0,106,0.35);
+}
+.city-tab-emoji { font-size: 0.9rem; }
+
+.city-panel { max-width: 800px; margin: 0 auto; }
+
+.venue-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 2.25rem 2.5rem;
+  backdrop-filter: blur(10px);
+}
+.venue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.venue-name {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.venue-address {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255,250,245,0.4);
+  letter-spacing: 0.02em;
+}
+.venue-book-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--magenta), var(--saffron));
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.venue-book-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.schedule-slots { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+.slot:hover { background: rgba(255,255,255,0.06); }
+.slot.highlight {
+  background: rgba(212,0,106,0.08);
+  border-color: rgba(212,0,106,0.2);
+}
+.slot-day {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  min-width: 100px;
+}
+.slot-divider {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.slot-time {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255,250,245,0.6);
+  white-space: nowrap;
+}
+.slot-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  background: rgba(212,0,106,0.15);
+  border: 1px solid rgba(212,0,106,0.3);
+  color: var(--pink-light);
+  white-space: nowrap;
+}
+.slot-pill.weekend {
+  background: rgba(255,184,0,0.12);
+  border-color: rgba(255,184,0,0.3);
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .venue-header { flex-direction: column; }
+  .slot { flex-wrap: wrap; gap: 0.5rem; }
+  .slot-divider { display: none; }
+  .schedule-section { padding: 4rem 1.5rem; }
+}
+
+/* ── MEMBERSHIP ── */
+.membership-section {
+  background: var(--dark);
+  padding: 6rem 3rem;
+}
+
+.partner-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 5rem;
+}
+.wellhub-banner::before {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,168,100,0.15) 0%, transparent 70%) !important;
+}
+.wellhub-badge { background: #00A864 !important; }
+.wellhub-btn { background: #00A864 !important; }
+.wellhub-btn:hover { background: #008a52 !important; }
+
+@media (max-width: 900px) {
+  .partner-banners { grid-template-columns: 1fr; }
+}
+
+.classpass-banner {
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.classpass-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.classpass-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #4F52D9;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+.classpass-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.classpass-sub {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.55);
+  margin-bottom: 1.75rem;
+}
+.classpass-btn {
+  display: inline-block;
+  background: var(--charcoal, #1A0010);
+  background: #111;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.classpass-btn:hover { opacity: 0.8; }
+
+.membership-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dropin-wrap {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+.dropin-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,0,106,0.25);
+  border-radius: 20px;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.dropin-title {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0.4rem 0 1rem;
+}
+.dropin-right { text-align: center; flex-shrink: 0; }
+.dropin-price {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--magenta), var(--saffron));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dropin-price-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,250,245,0.4);
+  margin-top: 0.25rem;
+}
+
+.plan-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  background: rgba(255,123,0,0.1);
+  border: 1px solid rgba(255,123,0,0.25);
+  padding: 0.28rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 0.5rem;
+}
+.plan-sub {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.4);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.plan-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.plan-features li {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.7);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.plan-features li::before {
+  content: '✦';
+  color: var(--magenta);
+  font-size: 0.6rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.plan-pricing { margin-bottom: 1.5rem; }
+.dur-toggle, .type-toggle {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+.dur-btn, .type-btn {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,250,245,0.5);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.45rem 0.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.dur-btn:hover, .type-btn:hover {
+  border-color: rgba(212,0,106,0.4);
+  color: rgba(255,250,245,0.8);
+}
+.dur-btn.active {
+  background: rgba(212,0,106,0.2);
+  border-color: var(--magenta);
+  color: var(--white);
+}
+.type-btn.active {
+  background: rgba(255,123,0,0.15);
+  border-color: var(--saffron);
+  color: var(--white);
+}
+.dur-btn.best { position: relative; }
+.type-label {
+  font-size: 0.7rem;
+  color: rgba(255,250,245,0.35);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+.plan-duration {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,250,245,0.4);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.04em;
+}
+.best-val {
+  background: rgba(255,184,0,0.15);
+  color: var(--gold);
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 50px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 0.3rem;
+}
+.plan-price {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.plan-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.plan-btn:hover {
+  background: linear-gradient(135deg, var(--magenta), var(--saffron));
+  border-color: transparent;
+}
+.featured .plan-btn {
+  background: linear-gradient(135deg, var(--magenta), var(--saffron));
+  border-color: transparent;
+}
+.featured .plan-btn:hover { opacity: 0.85; }
+.plan-disclaimer {
+  font-size: 0.68rem;
+  color: rgba(255,250,245,0.25);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.pricing-card:hover { transform: translateY(-5px); }
+.pricing-card.featured {
+  border-color: rgba(212,0,106,0.5);
+  background: rgba(212,0,106,0.07);
+}
+.featured-ribbon {
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--magenta), var(--saffron));
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 1.1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .dropin-card { flex-direction: column; text-align: center; }
+  .membership-section { padding: 4rem 1.5rem; }
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-16px); }
@@ -863,9 +1392,10 @@ footer {
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#classes">Classes</a></li>
-    <li><a href="#spots">Schedule</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#membership">Membership</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#join" class="nav-cta">Join Now</a></li>
+    <li><a href="#membership" class="nav-cta">Join Now</a></li>
   </ul>
 </nav>
 
@@ -890,6 +1420,19 @@ footer {
 
   <p class="hero-eyebrow">Bollywood Dance Fitness · Frisco · McKinney · Coppell, TX</p>
 
+  <!-- Partner pills -->
+  <div class="hero-partners">
+    <span class="partner-pill classpass-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      ClassPass Partner
+    </span>
+    <span class="partner-divider">·</span>
+    <span class="partner-pill wellhub-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      Wellhub Partner
+    </span>
+  </div>
+
   <h1 class="hero-title">
     <span class="line1">Dance.</span>
     <span class="line2">Groove.</span>
@@ -901,7 +1444,7 @@ footer {
   </p>
 
   <div class="hero-actions">
-    <a href="#join" class="btn-main">Join a Class</a>
+    <a href="#membership" class="btn-main">Join a Class</a>
     <a href="#classes" class="btn-outline">See Offerings</a>
   </div>
 
@@ -949,32 +1492,28 @@ footer {
       </div>
     </div>
     <div>
-      <span class="section-tag">Who We Are</span>
-      <h2 class="section-title">More than a <span class="gradient-text">workout.</span></h2>
+      <span class="section-tag">A Short Story About Us</span>
+      <h2 class="section-title">Hey, you <span class="gradient-text">fierce trailblazers!</span></h2>
       <p class="about-body">
-        Holistic Rhythm is a joyful movement community bringing the electric energy of Bollywood into fitness. Instructor-led classes that make you sweat, smile, and come back for more — no dance experience needed.
+        We kicked off Holistic Rhythm with one sassy goal: <em style="color:var(--gold)">anybody can dance — no excuses, no gatekeeping.</em> Just follow along, darling, and sweat with swag that'll make heads turn!
       </p>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-icon">💃</div>
-          <div class="pillar-text">
-            <h4>Beginner-Friendly</h4>
-            <p>Every level welcome. We build confidence through movement, one beat at a time.</p>
-          </div>
+      <p class="about-body">
+        Tired of that snooze-fest gym routine? Wake up and say hello to Bollywood Dance Fitness — where we blast the beats, drop thumkas like bombs, and turn every sweat sesh into a fierce fiesta of flair and fire.
+      </p>
+      <p class="about-body">
+        Zero judgment. Pure empowerment. Whether you're fumbling your first twirl or owning the floor like a boss — we dance like divas, slay calories with attitude, and banish boredom to the back row.
+      </p>
+      <p class="about-body" style="color:var(--gold);font-style:italic;font-weight:500;">
+        Let's groove, you icon — your body's begging for this bold bash! 🔥
+      </p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="stat-num">150+</span>
+          <span class="stat-lbl">Happy Clients</span>
         </div>
-        <div class="pillar">
-          <div class="pillar-icon">🔥</div>
-          <div class="pillar-text">
-            <h4>Full-Body Cardio</h4>
-            <p>High-energy sequences that torch calories while you're too busy having fun to notice.</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">🥗</div>
-          <div class="pillar-text">
-            <h4>Nutrition Support</h4>
-            <p>Holistic wellness goes beyond the dance floor. Members get clean-eating guidance too.</p>
-          </div>
+        <div class="about-stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-lbl">Years of Instructor Experience</span>
         </div>
       </div>
     </div>
@@ -993,7 +1532,7 @@ footer {
       <p class="class-tag">Signature Class</p>
       <h3 class="class-name">Bollywood Zumba</h3>
       <p class="class-desc">The heart of Holistic Rhythm — cinematic Bollywood choreography fused with Zumba-style cardio intervals. Sweat-inducing, soul-filling, and endlessly fun.</p>
-      <a href="#join" class="class-link">Reserve a spot →</a>
+      <a href="#membership" class="class-link">Reserve a spot →</a>
     </div>
     <div class="class-card">
       <span class="class-emoji">🏆</span>
@@ -1019,6 +1558,120 @@ footer {
     "It's no exaggeration when I say the Bollywood class changed my life from a season of depression and lack of motivation. I felt so healthy and happy — and I loved the community we built."
   </blockquote>
   <p class="testi-author">— Colleen Lawson, Member</p>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="schedule-section">
+  <div class="schedule-header">
+    <span class="section-tag">Weekly Schedule</span>
+    <h2 class="section-title">Find your <span class="gradient-text">class</span></h2>
+    <p class="schedule-sub">Three cities. One vibe. Pick your location and show up. 💃</p>
+  </div>
+
+  <!-- City Tabs -->
+  <div class="city-tabs">
+    <button class="city-tab active" data-city="frisco">
+      <span class="city-tab-emoji">📍</span> Frisco
+    </button>
+    <button class="city-tab" data-city="coppell">
+      <span class="city-tab-emoji">📍</span> Coppell
+    </button>
+    <button class="city-tab" data-city="mckinney">
+      <span class="city-tab-emoji">📍</span> McKinney / Allen
+    </button>
+  </div>
+
+  <!-- FRISCO -->
+  <div class="city-panel active" id="city-frisco">
+    <div class="venue-card">
+      <div class="venue-header">
+        <div>
+          <p class="venue-name">Richwood Academy</p>
+          <p class="venue-address">📌 4633 Coit Rd #310, Frisco, TX 75035</p>
+        </div>
+        <a href="#membership" class="venue-book-btn">Book Now →</a>
+      </div>
+      <div class="schedule-slots">
+        <div class="slot">
+          <span class="slot-day">Monday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">6:10 PM – 7:10 PM</span>
+          <span class="slot-pill">Zumba</span>
+        </div>
+        <div class="slot">
+          <span class="slot-day">Wednesday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">6:10 PM – 7:10 PM</span>
+          <span class="slot-pill">Zumba</span>
+        </div>
+        <div class="slot highlight">
+          <span class="slot-day">Sunday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">9:00 AM – 10:00 AM</span>
+          <span class="slot-pill weekend">Weekend Groove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPPELL -->
+  <div class="city-panel" id="city-coppell" style="display:none">
+    <div class="venue-card">
+      <div class="venue-header">
+        <div>
+          <p class="venue-name">Guru Parampara School of Arts</p>
+          <p class="venue-address">📌 773 S MacArthur Blvd #215, Coppell, TX 75019</p>
+        </div>
+        <a href="#membership" class="venue-book-btn">Book Now →</a>
+      </div>
+      <div class="schedule-slots">
+        <div class="slot highlight">
+          <span class="slot-day">Saturday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">12:00 PM – 1:00 PM</span>
+          <span class="slot-pill weekend">Weekend Groove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCKINNEY/ALLEN -->
+  <div class="city-panel" id="city-mckinney" style="display:none">
+    <div class="venue-card">
+      <div class="venue-header">
+        <div>
+          <p class="venue-name">Stacy Montessori Academy</p>
+          <p class="venue-address">📌 5400 Stacy Rd, McKinney, TX 75070</p>
+        </div>
+        <a href="#membership" class="venue-book-btn">Book Now →</a>
+      </div>
+      <div class="schedule-slots">
+        <div class="slot">
+          <span class="slot-day">Wednesday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">6:00 PM – 7:00 PM</span>
+          <span class="slot-pill">Zumba</span>
+        </div>
+        <div class="slot highlight">
+          <span class="slot-day">Saturday</span>
+          <span class="slot-divider"></span>
+          <span class="slot-time">11:30 AM – 12:30 PM</span>
+          <span class="slot-pill weekend">Weekend Groove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.city-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.city-panel').forEach(p => p.style.display = 'none');
+        tab.classList.add('active');
+        document.getElementById('city-' + tab.dataset.city).style.display = '';
+      });
+    });
+  </script>
 </section>
 
 <!-- SPOTS -->
@@ -1052,8 +1705,285 @@ footer {
     </div>
   </div>
   <div style="text-align:center;margin-top:3rem;">
-    <a href="#join" class="btn-main">Book My Spot</a>
+    <a href="#membership" class="btn-main">Book My Spot</a>
   </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership" class="membership-section">
+
+  <!-- Partner Banners -->
+  <div class="partner-banners">
+
+    <div class="classpass-banner">
+      <div class="classpass-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/></svg>
+        ClassPass Partner
+      </div>
+      <h2 class="classpass-title">Classpass Wellness Partner</h2>
+      <p class="classpass-sub">Holistic Rhythm is now a ClassPass Partner — book directly through the app!</p>
+      <a href="https://classpass.com" target="_blank" class="classpass-btn">Book from ClassPass</a>
+    </div>
+
+    <div class="classpass-banner wellhub-banner">
+      <div class="classpass-badge wellhub-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+        Wellhub Partner
+      </div>
+      <h2 class="classpass-title">Wellhub Wellness Partner</h2>
+      <p class="classpass-sub">Also available on Wellhub — access Holistic Rhythm classes through your corporate wellness benefit!</p>
+      <a href="https://wellhub.com" target="_blank" class="classpass-btn wellhub-btn">Book from Wellhub</a>
+    </div>
+
+  </div>
+
+  <!-- Section Header -->
+  <div class="membership-header">
+    <span class="section-tag">Choose Your Weekly Flow</span>
+    <h2 class="section-title">Pick your <span class="gradient-text">plan</span></h2>
+    <p style="color:rgba(255,250,245,0.45);font-size:0.9rem;font-weight:300;margin-top:0.5rem;">All plans include access to any location — Frisco, McKinney & Coppell.</p>
+  </div>
+
+  <!-- Drop-in card -->
+  <div class="dropin-wrap">
+    <div class="dropin-card">
+      <div class="dropin-left">
+        <span class="plan-tag">Trial</span>
+        <h3 class="dropin-title">Drop-In Class</h3>
+        <ul class="plan-features">
+          <li>Access to classes at any location</li>
+          <li>1 class · Classes as per schedule</li>
+          <li>Trial class — $20 value</li>
+          <li>Refundable upon monthly subscription sign-up</li>
+          <li>⏳ Expires in 30 days</li>
+        </ul>
+      </div>
+      <div class="dropin-right">
+        <p class="dropin-price">$20</p>
+        <p class="dropin-price-label">one-time trial</p>
+        <a href="https://momence.com/m/807234" target="_blank" class="btn-main" style="margin-top:1.25rem;display:inline-block;">Book my Trial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing tiers -->
+  <div class="pricing-grid">
+
+    <!-- STARTER FLOW -->
+    <div class="pricing-card" id="card-starter">
+      <span class="plan-tag">Starter Flow</span>
+      <p class="plan-sub">Perfect for beginners</p>
+
+      <!-- 1 Month features -->
+      <ul class="plan-features" id="starter-features-1">
+        <li>Package includes <strong>4 classes</strong></li>
+        <li><strong>1 class per week for 4 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Access to Member-priced community event entry</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <!-- 3 Month features -->
+      <ul class="plan-features" id="starter-features-3" style="display:none">
+        <li>Package includes <strong>12 classes</strong></li>
+        <li><strong>1 class per week for 12 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Event discounts, exclusive swag, and a fat-loss nutrition plan included</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <!-- 12 Month features -->
+      <ul class="plan-features" id="starter-features-12" style="display:none">
+        <li>Package includes <strong>48 classes</strong></li>
+        <li><strong>1 class per week for 48 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Includes 3 free events annually (you +1), 2 swag items, a nutrition plan, and two 30-minute nutrition consults</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+
+      <!-- Duration picker -->
+      <div class="dur-toggle" data-card="starter">
+        <button class="dur-btn active" data-dur="1">1 mo</button>
+        <button class="dur-btn" data-dur="3">3 mo</button>
+        <button class="dur-btn best" data-dur="12">12 mo ✦</button>
+      </div>
+      <!-- Type toggle -->
+      <div class="type-toggle" data-card="starter">
+        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
+        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+      </div>
+      <div class="plan-pricing">
+        <p class="type-label" id="starter-type-label">Auto-renews · Cancel with 4 weeks notice</p>
+        <p class="plan-price" id="starter-price">$56<span style="font-size:1rem;font-weight:400;opacity:0.5">/mo</span></p>
+      </div>
+      <a href="https://momence.com/m/781224" target="_blank" class="plan-btn" id="starter-cta">Choose Plan</a>
+      <p class="plan-disclaimer">Please note that a 4 week notice is required to cancel or disable your subscription.</p>
+    </div>
+
+    <!-- MOMENTUM BUILDER -->
+    <div class="pricing-card featured" id="card-momentum">
+      <div class="featured-ribbon">Most Popular</div>
+      <span class="plan-tag">Momentum Builder</span>
+      <p class="plan-sub">Build consistency &amp; confidence</p>
+
+      <ul class="plan-features" id="momentum-features-1">
+        <li>Package includes <strong>8 classes</strong></li>
+        <li><strong>2 classes per week for 4 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Access to Member-priced community event entry</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <ul class="plan-features" id="momentum-features-3" style="display:none">
+        <li>Package includes <strong>24 classes</strong></li>
+        <li><strong>2 classes per week for 12 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Event discounts, exclusive swag, and a fat-loss nutrition plan included</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <ul class="plan-features" id="momentum-features-12" style="display:none">
+        <li>Package includes <strong>96 classes</strong></li>
+        <li><strong>2 classes per week for 48 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Includes 3 free events annually (you +1), 2 swag items, a nutrition plan, and two 30-minute nutrition consults</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+
+      <div class="dur-toggle" data-card="momentum">
+        <button class="dur-btn active" data-dur="1">1 mo</button>
+        <button class="dur-btn" data-dur="3">3 mo</button>
+        <button class="dur-btn best" data-dur="12">12 mo ✦</button>
+      </div>
+      <div class="type-toggle" data-card="momentum">
+        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
+        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+      </div>
+      <div class="plan-pricing">
+        <p class="type-label" id="momentum-type-label">Auto-renews · Cancel with 4 weeks notice</p>
+        <p class="plan-price" id="momentum-price">$94<span style="font-size:1rem;font-weight:400;opacity:0.5">/mo</span></p>
+      </div>
+      <a href="https://momence.com/m/781236" target="_blank" class="plan-btn" id="momentum-cta">Choose Plan</a>
+      <p class="plan-disclaimer">Please note that a 4 week notice is required to cancel or disable your subscription.</p>
+    </div>
+
+    <!-- POWER PROGRESS -->
+    <div class="pricing-card" id="card-power">
+      <span class="plan-tag">Power Progress</span>
+      <p class="plan-sub">Stronger, fitter, bolder</p>
+
+      <ul class="plan-features" id="power-features-1">
+        <li>Package includes <strong>12 classes</strong></li>
+        <li><strong>3 classes per week for 4 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Access to Member-priced community event entry</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <ul class="plan-features" id="power-features-3" style="display:none">
+        <li>Package includes <strong>36 classes</strong></li>
+        <li><strong>3 classes per week for 12 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Event discounts, exclusive swag, and a fat-loss nutrition plan included</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+      <ul class="plan-features" id="power-features-12" style="display:none">
+        <li>Package includes <strong>144 classes</strong></li>
+        <li><strong>3 classes per week for 48 weeks</strong> at any Holistic Rhythm location</li>
+        <li>Includes 3 free events annually (you +1), 2 swag items, a nutrition plan, and two 30-minute nutrition consults</li>
+        <li>Discounted pricing available with <strong>recurring auto-pay</strong></li>
+      </ul>
+
+      <div class="dur-toggle" data-card="power">
+        <button class="dur-btn active" data-dur="1">1 mo</button>
+        <button class="dur-btn" data-dur="3">3 mo</button>
+        <button class="dur-btn best" data-dur="12">12 mo ✦</button>
+      </div>
+      <div class="type-toggle" data-card="power">
+        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
+        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+      </div>
+      <div class="plan-pricing">
+        <p class="type-label" id="power-type-label">Auto-renews · Cancel with 4 weeks notice</p>
+        <p class="plan-price" id="power-price">$141<span style="font-size:1rem;font-weight:400;opacity:0.5">/mo</span></p>
+      </div>
+      <a href="https://momence.com/m/807230" target="_blank" class="plan-btn" id="power-cta">Choose Plan</a>
+      <p class="plan-disclaimer">Please note that a 4 week notice is required to cancel or disable your subscription.</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Starter Flow config
+    const starterConfig = {
+      1:  { sub: { price: 56, label: '/mo',    url: 'https://momence.com/m/781224', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 59, label: ' total', url: 'https://momence.com/m/781162', note: 'One-time · No renewal' } },
+      3:  { sub: { price: 113, label: '/3 mo', url: 'https://momence.com/m/781227', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 119, label: ' total', url: 'https://momence.com/m/781165', note: 'One-time · No renewal' } },
+      12: { sub: { price: 452, label: '/yr',   url: 'https://momence.com/m/807234', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 476, label: ' total', url: 'https://momence.com/m/807234', note: 'One-time · No renewal' } }
+    };
+
+    // Momentum & Power still use generic Momence link — update when you have their specific links
+    const momentumConfig = {
+      1:  { sub: { price: 94,  label: '/mo',    url: 'https://momence.com/m/781236', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 99,  label: ' total', url: 'https://momence.com/m/781167', note: 'One-time · No renewal' } },
+      3:  { sub: { price: 179, label: '/3 mo', url: 'https://momence.com/m/781237', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 189, label: ' total', url: 'https://momence.com/m/781168', note: 'One-time · No renewal' } },
+      12: { sub: { price: 718, label: '/yr',   url: 'https://momence.com/m/807234', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 756, label: ' total', url: 'https://momence.com/m/807234', note: 'One-time · No renewal' } }
+    };
+
+    const powerConfig = {
+      1:  { sub: { price: 141,  label: '/mo',    url: 'https://momence.com/m/807230', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 149,  label: ' total', url: 'https://momence.com/m/781175', note: 'One-time · No renewal' } },
+      3:  { sub: { price: 255,  label: '/3 mo', url: 'https://momence.com/m/807231', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 269,  label: ' total', url: 'https://momence.com/m/781173', note: 'One-time · No renewal' } },
+      12: { sub: { price: 1038, label: '/yr',   url: 'https://momence.com/m/807234', note: 'Auto-renews · Cancel with 4 weeks notice' },
+             one: { price: 1070, label: ' total', url: 'https://momence.com/m/807234', note: 'One-time · No renewal' } }
+    };
+
+    const configs = { starter: starterConfig, momentum: momentumConfig, power: powerConfig };
+    const state = { starter: { dur: 1, type: 'sub' }, momentum: { dur: 1, type: 'sub' }, power: { dur: 1, type: 'sub' } };
+
+    function updateCard(card) {
+      const s = state[card];
+      const cfg = configs[card][s.dur][s.type];
+      document.getElementById(card + '-price').innerHTML =
+        '$' + cfg.price.toLocaleString() + '<span style="font-size:1rem;font-weight:400;opacity:0.5">' + cfg.label + '</span>';
+      document.getElementById(card + '-type-label').textContent = cfg.note;
+      document.getElementById(card + '-cta').href = cfg.url;
+
+      // Toggle feature lists for starter
+      if (card === 'starter') {
+        [1, 3, 12].forEach(d => {
+          const el = document.getElementById('starter-features-' + d);
+          if (el) el.style.display = (d === s.dur) ? '' : 'none';
+        });
+      }
+      // Toggle feature lists for momentum
+      if (card === 'momentum') {
+        [1, 3, 12].forEach(d => {
+          const el = document.getElementById('momentum-features-' + d);
+          if (el) el.style.display = (d === s.dur) ? '' : 'none';
+        });
+      }
+      // Toggle feature lists for power
+      if (card === 'power') {
+        [1, 3, 12].forEach(d => {
+          const el = document.getElementById('power-features-' + d);
+          if (el) el.style.display = (d === s.dur) ? '' : 'none';
+        });
+      }
+    }
+
+    document.querySelectorAll('.dur-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.dur-toggle').dataset.card;
+        btn.closest('.dur-toggle').querySelectorAll('.dur-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state[card].dur = parseInt(btn.dataset.dur);
+        updateCard(card);
+      });
+    });
+
+    document.querySelectorAll('.type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.type-toggle').dataset.card;
+        btn.closest('.type-toggle').querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state[card].type = btn.dataset.type;
+        updateCard(card);
+      });
+    });
+  </script>
 </section>
 
 <!-- FOOTER -->
@@ -1076,17 +2006,16 @@ footer {
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#classes">Classes</a></li>
-        <li><a href="#spots">Schedule</a></li>
+        <li><a href="#schedule">Schedule</a></li>
         <li><a href="#">Pricing</a></li>
         <li><a href="#">MasterClass</a></li>
-        <li><a href="#">Liability Waiver</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
       <p class="footer-contact-item">hello@myholisticrhythm.com</p>
       <p class="footer-contact-item">469-213-8009</p>
-      <p class="footer-contact-item" style="margin-top:1rem;color:rgba(255,250,245,0.25);font-size:0.8rem;">Guru Parampara School of Arts<br>Coppell, TX</p>
+
     </div>
   </div>
   <div class="footer-bottom">
