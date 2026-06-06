@@ -87,18 +87,31 @@ nav {
 
 .nav-portal {
   font-size: 0.78rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   letter-spacing: 0.08em !important;
-  color: rgba(255,250,245,0.65) !important;
-  border: 1px solid rgba(255,250,245,0.2) !important;
-  padding: 0.45rem 1rem !important;
+  color: var(--white) !important;
+  background: linear-gradient(135deg, var(--magenta), var(--saffron)) !important;
+  padding: 0.55rem 1.4rem !important;
   border-radius: 50px !important;
   text-decoration: none !important;
-  transition: border-color 0.2s, color 0.2s !important;
+  box-shadow: 0 4px 16px rgba(212,0,106,0.35) !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+  border: none !important;
 }
 .nav-portal:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
   color: var(--white) !important;
-  border-color: rgba(255,250,245,0.5) !important;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: flex !important;
+    gap: 0 !important;
+    align-items: center;
+  }
+  .nav-links li { display: none; }
+  .nav-links li:last-child { display: block; }
 }
 
 .nav-cta {
@@ -1649,7 +1662,6 @@ footer {
     <li><a href="#membership">Membership</a></li>
     <li><a href="#contact-form">Contact</a></li>
     <li><a href="https://momence.com/sign-in?hostId=199629" target="_blank" class="nav-portal">Member Portal</a></li>
-    <li><a href="#membership" class="nav-cta">Join Now</a></li>
   </ul>
 </nav>
 
