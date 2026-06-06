@@ -2174,7 +2174,7 @@ footer {
           <span class="sleek-line"></span>
         </div>
         <div class="sleek-field">
-          <input type="tel" name="phone" class="sleek-input" placeholder=" ">
+          <input type="tel" name="phone" class="sleek-input" placeholder=" " required>
           <label class="sleek-label">Phone Number</label>
           <span class="sleek-line"></span>
         </div>
@@ -2203,10 +2203,16 @@ footer {
         <a href="https://www.instagram.com/myholisticrhythm/" class="footer-social" target="_blank">Instagram</a>
         <a href="https://www.facebook.com/myholisticrhythm" class="footer-social" target="_blank">Facebook</a>
       </div>
-      <div class="newsletter-row">
-        <input type="email" class="nl-input" placeholder="Your email">
-        <button class="nl-btn">Subscribe</button>
-      </div>
+      <form action="https://formsubmit.co/team@myholisticrhythm.com" method="POST" style="margin-top:2rem;">
+        <input type="hidden" name="_subject" value="New newsletter subscriber - Holistic Rhythm">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.myholisticrhythm.com">
+        <input type="hidden" name="message" value="New subscriber signed up via the website footer.">
+        <div class="newsletter-row">
+          <input type="email" name="email" class="nl-input" placeholder="Your email" required>
+          <button type="submit" class="nl-btn">Subscribe</button>
+        </div>
+      </form>
     </div>
     <div class="footer-col">
       <h5>Navigate</h5>
