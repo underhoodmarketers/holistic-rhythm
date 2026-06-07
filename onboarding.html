@@ -268,6 +268,35 @@ nav {
   margin-top: 0.75rem;
 }
 
+.checkin-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  background: rgba(212,0,106,0.06);
+  border: 1px solid rgba(212,0,106,0.25);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+.checkin-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.checkin-icon { font-size: 1.4rem; flex-shrink: 0; }
+.checkin-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+.checkin-desc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.6);
+  line-height: 1.6;
+}
+
 /* LATE FEE TABLE */
 .fee-table {
   width: 100%;
@@ -370,9 +399,25 @@ nav {
 
 .action-btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 1.25rem;
+}
+.action-btn-card-sub {
+  background: rgba(255,184,0,0.08);
+  border: 1px solid rgba(255,184,0,0.3);
+}
+.action-btn-link-sub {
+  background: transparent !important;
+  border: 1px solid rgba(255,184,0,0.4) !important;
+  color: var(--gold) !important;
+}
+.action-btn-link-sub:hover {
+  background: rgba(255,184,0,0.15) !important;
+  border-color: var(--gold) !important;
+}
+@media (max-width: 900px) {
+  .action-btns { grid-template-columns: 1fr; }
 }
 .action-btn-card {
   background: rgba(212,0,106,0.1);
@@ -430,6 +475,42 @@ nav {
 
 @media (max-width: 700px) {
   .action-btns { grid-template-columns: 1fr; }
+}
+
+.mandatory-box {
+  background: rgba(212,0,106,0.06);
+  border: 1px solid rgba(212,0,106,0.3);
+  border-left: 4px solid var(--magenta);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+.mandatory-header { margin-bottom: 1.5rem; }
+.mandatory-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  background: rgba(212,0,106,0.12);
+  border: 1px solid rgba(212,0,106,0.3);
+  padding: 0.25rem 0.8rem;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+}
+.mandatory-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.mandatory-sub {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,250,245,0.65);
+  line-height: 1.75;
 }
 
 /* NEED HELP */
@@ -526,6 +607,11 @@ nav {
             <p class="action-btn-desc">Same steps — but apply your promo code at checkout to avoid being charged again. Don't have your code? Text us and we'll send it over.</p>
             <a href="https://www.myholisticrhythm.com/#membership" class="action-btn-link action-btn-link-ghost">Pick Your Plan →</a>
           </div>
+          <div class="action-btn-card action-btn-card-sub">
+            <p class="action-btn-label">🔄 I Have an Active Subscription</p>
+            <p class="action-btn-desc">Skip the onboarding steps below — just go to your account and add a credit card to keep your subscription active and avoid any system-generated late fees.</p>
+            <a href="https://momence.com/sign-in?hostId=199629" target="_blank" class="action-btn-link action-btn-link-sub">Go to My Account →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -556,29 +642,41 @@ nav {
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <span class="for-badge for-all">🌟 For Everyone</span>
-        <h3>Book Your Classes with Credits</h3>
-        <p>Before every class, <strong>book your spot using your credits</strong> in the Momence app or member portal. This is important because it:</p>
-        <div class="pill-row">
-          <span class="highlight">Tracks classes used & remaining</span>
-          <span class="highlight">Lets you pre-book in advance</span>
-          <span class="highlight">Allows last-min changes with no penalty</span>
+
+  </div>
+
+  <!-- MANDATORY EVERY CLASS SECTION -->
+  <h2 class="section-title" style="margin-top:1rem;">📋 Mandatory — Every Class</h2>
+  <div class="mandatory-box">
+    <div class="mandatory-header">
+      <span class="mandatory-badge">⚡ Required Before Every Class</span>
+      <h3 class="mandatory-title">Book Your Class Through Momence</h3>
+      <p class="mandatory-sub">Every single class must be booked through the Momence check-in process before you attend — either via the app or by logging into your account on the website. <strong>Simply showing up without booking does not count as a check-in.</strong></p>
+    </div>
+
+    <div class="checkin-box" style="margin-top:0;">
+      <div class="checkin-item">
+        <span class="checkin-icon">📱</span>
+        <div>
+          <p class="checkin-title">Momence App</p>
+          <p class="checkin-desc">Download the app, log in, find the class and tap <strong>Book</strong> to reserve your spot and use a credit.</p>
         </div>
-        <p style="margin-top:0.75rem;">Credits expire according to your package. Any remaining credits carry over when you renew — so never let them go to waste!</p>
+      </div>
+      <div class="checkin-item">
+        <span class="checkin-icon">🌐</span>
+        <div>
+          <p class="checkin-title">Member Portal (Web)</p>
+          <p class="checkin-desc">Log in at <a href="https://momence.com/sign-in?hostId=199629" target="_blank" style="color:var(--magenta)">momence.com</a>, go to your schedule and book the class from there.</p>
+        </div>
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-num alt">5</div>
-      <div class="step-body">
-        <h3>Subscription Members — Add Your Card</h3>
-        <p>If you have an active subscription, <strong>no action is needed</strong> — you'll be ported to the new system automatically. However, you <strong>must add a credit card</strong> to your account to keep your subscription active and avoid system-generated late fees.</p>
-      </div>
+    <div class="pill-row" style="margin-top:1.25rem;">
+      <span class="highlight">Pre-book in advance</span>
+      <span class="highlight">Last-min changes — no penalty</span>
+      <span class="highlight">Tracks credits used & remaining</span>
     </div>
-
+    <p style="margin-top:1rem;font-size:0.83rem;font-weight:300;color:rgba(255,250,245,0.5);line-height:1.7;">Credits expire according to your package. Any remaining credits carry over when you renew — so never let them go to waste!</p>
   </div>
 
   <!-- App Section -->
