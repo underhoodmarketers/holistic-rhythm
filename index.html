@@ -2199,31 +2199,6 @@ footer {
 <!-- MEMBERSHIP -->
 <section id="membership" class="membership-section">
 
-  <!-- Partner Banners -->
-  <div class="partner-banners">
-
-    <div class="classpass-banner">
-      <div class="classpass-badge">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/></svg>
-        ClassPass Partner
-      </div>
-      <h2 class="classpass-title">Classpass Wellness Partner</h2>
-      <p class="classpass-sub">Holistic Rhythm is now a ClassPass Partner — book directly through the app!</p>
-      <a href="https://classpass.com" target="_blank" class="classpass-btn">Book from ClassPass</a>
-    </div>
-
-    <div class="classpass-banner wellhub-banner">
-      <div class="classpass-badge wellhub-badge">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
-        Wellhub Partner
-      </div>
-      <h2 class="classpass-title">Wellhub Wellness Partner</h2>
-      <p class="classpass-sub">Also available on Wellhub — access Holistic Rhythm classes through your corporate wellness benefit!</p>
-      <a href="https://wellhub.com" target="_blank" class="classpass-btn wellhub-btn">Book from Wellhub</a>
-    </div>
-
-  </div>
-
   <!-- Section Header -->
   <div class="membership-header">
     <span class="section-tag">Choose Your Weekly Flow</span>
@@ -2291,8 +2266,8 @@ footer {
       </div>
       <!-- Type toggle -->
       <div class="type-toggle" data-card="starter">
-        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
-        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn active" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn" data-type="sub">🔄 Subscription</button>
       </div>
       <div class="plan-pricing">
         <p class="type-label" id="starter-type-label">Auto-renews · Cancel with 4 weeks notice</p>
@@ -2333,8 +2308,8 @@ footer {
         <button class="dur-btn best" data-dur="12">12 mo ✦</button>
       </div>
       <div class="type-toggle" data-card="momentum">
-        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
-        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn active" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn" data-type="sub">🔄 Subscription</button>
       </div>
       <div class="plan-pricing">
         <p class="type-label" id="momentum-type-label">Auto-renews · Cancel with 4 weeks notice</p>
@@ -2374,8 +2349,8 @@ footer {
         <button class="dur-btn best" data-dur="12">12 mo ✦</button>
       </div>
       <div class="type-toggle" data-card="power">
-        <button class="type-btn active" data-type="sub">🔄 Subscription</button>
-        <button class="type-btn" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn active" data-type="one">⚡ Pay Once</button>
+        <button class="type-btn" data-type="sub">🔄 Subscription</button>
       </div>
       <div class="plan-pricing">
         <p class="type-label" id="power-type-label">Auto-renews · Cancel with 4 weeks notice</p>
@@ -2418,7 +2393,7 @@ footer {
     };
 
     const configs = { starter: starterConfig, momentum: momentumConfig, power: powerConfig };
-    const state = { starter: { dur: 1, type: 'sub' }, momentum: { dur: 1, type: 'sub' }, power: { dur: 1, type: 'sub' } };
+    const state = { starter: { dur: 1, type: 'one' }, momentum: { dur: 1, type: 'one' }, power: { dur: 1, type: 'one' } };
 
     function updateCard(card) {
       const s = state[card];
@@ -2471,6 +2446,33 @@ footer {
       });
     });
   </script>
+</section>
+
+<!-- PARTNER BANNERS -->
+<section style="background:var(--dark2);padding:4rem 3rem;">
+  <div class="partner-banners">
+
+    <div class="classpass-banner">
+      <div class="classpass-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/></svg>
+        ClassPass Partner
+      </div>
+      <h2 class="classpass-title">Classpass Wellness Partner</h2>
+      <p class="classpass-sub">Holistic Rhythm is now a ClassPass Partner — book directly through the app!</p>
+      <a href="https://classpass.com" target="_blank" class="classpass-btn">Book from ClassPass</a>
+    </div>
+
+    <div class="classpass-banner wellhub-banner">
+      <div class="classpass-badge wellhub-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+        Wellhub Partner
+      </div>
+      <h2 class="classpass-title">Wellhub Wellness Partner</h2>
+      <p class="classpass-sub">Also available on Wellhub — access Holistic Rhythm classes through your corporate wellness benefit!</p>
+      <a href="https://wellhub.com" target="_blank" class="classpass-btn wellhub-btn">Book from Wellhub</a>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT FORM -->
